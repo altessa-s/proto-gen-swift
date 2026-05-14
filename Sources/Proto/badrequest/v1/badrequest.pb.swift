@@ -50,33 +50,33 @@ public struct Io_Altessa_Badrequest_V1_FieldViolation: Sendable {
   /// The dot-separated path to the field that caused the violation.
   /// For example, "user.address.street" or "items[2].name".
   public var fieldPath: String {
-    get {_fieldPath ?? String()}
+    get {return _fieldPath ?? String()}
     set {_fieldPath = newValue}
   }
   /// Returns true if `fieldPath` has been explicitly set.
-  public var hasFieldPath: Bool {self._fieldPath != nil}
+  public var hasFieldPath: Bool {return self._fieldPath != nil}
   /// Clears the value of `fieldPath`. Subsequent reads from it will return its default value.
   public mutating func clearFieldPath() {self._fieldPath = nil}
 
   /// Human-readable message describing the violation.
   /// This should be specific to the field and the error condition.
   public var message: String {
-    get {_message ?? String()}
+    get {return _message ?? String()}
     set {_message = newValue}
   }
   /// Returns true if `message` has been explicitly set.
-  public var hasMessage: Bool {self._message != nil}
+  public var hasMessage: Bool {return self._message != nil}
   /// Clears the value of `message`. Subsequent reads from it will return its default value.
   public mutating func clearMessage() {self._message = nil}
 
   /// Application-specific error code or identifier for this type of violation.
   /// This can be used by clients for programmatic error handling.
   public var code: String {
-    get {_code ?? String()}
+    get {return _code ?? String()}
     set {_code = newValue}
   }
   /// Returns true if `code` has been explicitly set.
-  public var hasCode: Bool {self._code != nil}
+  public var hasCode: Bool {return self._code != nil}
   /// Clears the value of `code`. Subsequent reads from it will return its default value.
   public mutating func clearCode() {self._code = nil}
 
@@ -103,71 +103,71 @@ public struct Io_Altessa_Badrequest_V1_FieldPathComponent: Sendable {
 
   /// Field number as defined in the .proto file.
   public var number: Int32 {
-    get {_number ?? 0}
+    get {return _number ?? 0}
     set {_number = newValue}
   }
   /// Returns true if `number` has been explicitly set.
-  public var hasNumber: Bool {self._number != nil}
+  public var hasNumber: Bool {return self._number != nil}
   /// Clears the value of `number`. Subsequent reads from it will return its default value.
   public mutating func clearNumber() {self._number = nil}
 
   /// Name of the field as defined in the .proto file.
   public var name: String {
-    get {_name ?? String()}
+    get {return _name ?? String()}
     set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  public var hasName: Bool {self._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
   public mutating func clearName() {self._name = nil}
 
   /// Data type of the field.
   public var type: SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum {
-    get {_type ?? .double}
+    get {return _type ?? .double}
     set {_type = newValue}
   }
   /// Returns true if `type` has been explicitly set.
-  public var hasType: Bool {self._type != nil}
+  public var hasType: Bool {return self._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
   public mutating func clearType() {self._type = nil}
 
   /// For map fields, specifies the data type of the map keys.
   public var mapKeyType: SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum {
-    get {_mapKeyType ?? .double}
+    get {return _mapKeyType ?? .double}
     set {_mapKeyType = newValue}
   }
   /// Returns true if `mapKeyType` has been explicitly set.
-  public var hasMapKeyType: Bool {self._mapKeyType != nil}
+  public var hasMapKeyType: Bool {return self._mapKeyType != nil}
   /// Clears the value of `mapKeyType`. Subsequent reads from it will return its default value.
   public mutating func clearMapKeyType() {self._mapKeyType = nil}
 
   /// For map fields, specifies the data type of the map values.
   public var mapValueType: SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum {
-    get {_mapValueType ?? .double}
+    get {return _mapValueType ?? .double}
     set {_mapValueType = newValue}
   }
   /// Returns true if `mapValueType` has been explicitly set.
-  public var hasMapValueType: Bool {self._mapValueType != nil}
+  public var hasMapValueType: Bool {return self._mapValueType != nil}
   /// Clears the value of `mapValueType`. Subsequent reads from it will return its default value.
   public mutating func clearMapValueType() {self._mapValueType = nil}
 
   /// Indicates whether the field is a repeated field (i.e., an array or list).
   public var isRepeated: Bool {
-    get {_isRepeated ?? false}
+    get {return _isRepeated ?? false}
     set {_isRepeated = newValue}
   }
   /// Returns true if `isRepeated` has been explicitly set.
-  public var hasIsRepeated: Bool {self._isRepeated != nil}
+  public var hasIsRepeated: Bool {return self._isRepeated != nil}
   /// Clears the value of `isRepeated`. Subsequent reads from it will return its default value.
   public mutating func clearIsRepeated() {self._isRepeated = nil}
 
   /// For repeated fields, the 0-based index of the element that caused the violation.
   public var repeatedIndex: UInt64 {
-    get {_repeatedIndex ?? 0}
+    get {return _repeatedIndex ?? 0}
     set {_repeatedIndex = newValue}
   }
   /// Returns true if `repeatedIndex` has been explicitly set.
-  public var hasRepeatedIndex: Bool {self._repeatedIndex != nil}
+  public var hasRepeatedIndex: Bool {return self._repeatedIndex != nil}
   /// Clears the value of `repeatedIndex`. Subsequent reads from it will return its default value.
   public mutating func clearRepeatedIndex() {self._repeatedIndex = nil}
 
@@ -255,7 +255,9 @@ fileprivate let _protobuf_package = "io.altessa.badrequest.v1"
 
 extension Io_Altessa_Badrequest_V1_BadRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".BadRequest"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}field_violations\0")
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "field_violations"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -285,7 +287,12 @@ extension Io_Altessa_Badrequest_V1_BadRequest: SwiftProtobuf.Message, SwiftProto
 
 extension Io_Altessa_Badrequest_V1_FieldViolation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FieldViolation"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}field_path\0\u{1}message\0\u{1}code\0\u{3}field_path_components\0")
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "field_path"),
+    2: .same(proto: "message"),
+    3: .same(proto: "code"),
+    4: .standard(proto: "field_path_components"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -334,7 +341,20 @@ extension Io_Altessa_Badrequest_V1_FieldViolation: SwiftProtobuf.Message, SwiftP
 
 extension Io_Altessa_Badrequest_V1_FieldPathComponent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FieldPathComponent"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}number\0\u{1}name\0\u{1}type\0\u{3}map_key_type\0\u{3}map_value_type\0\u{3}is_repeated\0\u{3}repeated_index\0\u{1}index\0\u{3}bool_key\0\u{3}int_key\0\u{3}uint_key\0\u{3}string_key\0")
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "number"),
+    2: .same(proto: "name"),
+    3: .same(proto: "type"),
+    4: .standard(proto: "map_key_type"),
+    5: .standard(proto: "map_value_type"),
+    6: .standard(proto: "is_repeated"),
+    7: .standard(proto: "repeated_index"),
+    8: .same(proto: "index"),
+    9: .standard(proto: "bool_key"),
+    10: .standard(proto: "int_key"),
+    11: .standard(proto: "uint_key"),
+    12: .standard(proto: "string_key"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

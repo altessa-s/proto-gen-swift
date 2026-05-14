@@ -33,138 +33,138 @@ public struct Io_Altessa_Serviceinfo_V1_ServiceInfo: @unchecked Sendable {
 
   /// The canonical name of the service (e.g., "user-service", "billing-api").
   public var serviceName: String {
-    get {_storage._serviceName}
+    get {return _storage._serviceName}
     set {_uniqueStorage()._serviceName = newValue}
   }
 
   /// Human-readable description of the service and its purpose.
   public var serviceDescription: String {
-    get {_storage._serviceDescription ?? String()}
+    get {return _storage._serviceDescription ?? String()}
     set {_uniqueStorage()._serviceDescription = newValue}
   }
   /// Returns true if `serviceDescription` has been explicitly set.
-  public var hasServiceDescription: Bool {_storage._serviceDescription != nil}
+  public var hasServiceDescription: Bool {return _storage._serviceDescription != nil}
   /// Clears the value of `serviceDescription`. Subsequent reads from it will return its default value.
   public mutating func clearServiceDescription() {_uniqueStorage()._serviceDescription = nil}
 
   /// Unique identifier for this specific instance of the service (e.g., a UUID or hostname-pid).
   public var serviceID: String {
-    get {_storage._serviceID ?? String()}
+    get {return _storage._serviceID ?? String()}
     set {_uniqueStorage()._serviceID = newValue}
   }
   /// Returns true if `serviceID` has been explicitly set.
-  public var hasServiceID: Bool {_storage._serviceID != nil}
+  public var hasServiceID: Bool {return _storage._serviceID != nil}
   /// Clears the value of `serviceID`. Subsequent reads from it will return its default value.
   public mutating func clearServiceID() {_uniqueStorage()._serviceID = nil}
 
   /// Indicates whether this service instance is currently the leader in a distributed system.
   /// True if this instance is the leader, false otherwise.
   public var isLeader: Bool {
-    get {_storage._isLeader}
+    get {return _storage._isLeader}
     set {_uniqueStorage()._isLeader = newValue}
   }
 
   /// The full version string of the service (e.g., "1.2.3-alpha+build.123").
   /// This may include semantic version, pre-release, and build metadata.
   public var fullVersion: String {
-    get {_storage._fullVersion}
+    get {return _storage._fullVersion}
     set {_uniqueStorage()._fullVersion = newValue}
   }
 
   /// The structured semantic version of the service.
   public var semanticVersion: Io_Altessa_Serviceinfo_V1_ServiceInfo.SemanticVersion {
-    get {_storage._semanticVersion ?? Io_Altessa_Serviceinfo_V1_ServiceInfo.SemanticVersion()}
+    get {return _storage._semanticVersion ?? Io_Altessa_Serviceinfo_V1_ServiceInfo.SemanticVersion()}
     set {_uniqueStorage()._semanticVersion = newValue}
   }
   /// Returns true if `semanticVersion` has been explicitly set.
-  public var hasSemanticVersion: Bool {_storage._semanticVersion != nil}
+  public var hasSemanticVersion: Bool {return _storage._semanticVersion != nil}
   /// Clears the value of `semanticVersion`. Subsequent reads from it will return its default value.
   public mutating func clearSemanticVersion() {_uniqueStorage()._semanticVersion = nil}
 
   /// The timestamp indicating when the service binary was built.
   /// Human-readable timestamp representation (e.g., "2025-01-19T15:30:45Z").
   public var buildTime: String {
-    get {_storage._buildTime}
+    get {return _storage._buildTime}
     set {_uniqueStorage()._buildTime = newValue}
   }
 
   /// Name of the source code branch from which this service instance was built (e.g., "main", "develop").
   public var branch: String {
-    get {_storage._branch ?? String()}
+    get {return _storage._branch ?? String()}
     set {_uniqueStorage()._branch = newValue}
   }
   /// Returns true if `branch` has been explicitly set.
-  public var hasBranch: Bool {_storage._branch != nil}
+  public var hasBranch: Bool {return _storage._branch != nil}
   /// Clears the value of `branch`. Subsequent reads from it will return its default value.
   public mutating func clearBranch() {_uniqueStorage()._branch = nil}
 
   /// Full Git commit hash (SHA) of the source code revision from which this service instance was built.
   public var commit: String {
-    get {_storage._commit ?? String()}
+    get {return _storage._commit ?? String()}
     set {_uniqueStorage()._commit = newValue}
   }
   /// Returns true if `commit` has been explicitly set.
-  public var hasCommit: Bool {_storage._commit != nil}
+  public var hasCommit: Bool {return _storage._commit != nil}
   /// Clears the value of `commit`. Subsequent reads from it will return its default value.
   public mutating func clearCommit() {_uniqueStorage()._commit = nil}
 
   /// Build tags or flags used during the compilation of the service.
   public var buildTags: String {
-    get {_storage._buildTags ?? String()}
+    get {return _storage._buildTags ?? String()}
     set {_uniqueStorage()._buildTags = newValue}
   }
   /// Returns true if `buildTags` has been explicitly set.
-  public var hasBuildTags: Bool {_storage._buildTags != nil}
+  public var hasBuildTags: Bool {return _storage._buildTags != nil}
   /// Clears the value of `buildTags`. Subsequent reads from it will return its default value.
   public mutating func clearBuildTags() {_uniqueStorage()._buildTags = nil}
 
   /// A collection of key-value pairs for additional, arbitrary metadata about the service instance.
   /// Keys and values are strings. Maximum 100 entries allowed.
   public var metadata: Dictionary<String,String> {
-    get {_storage._metadata}
+    get {return _storage._metadata}
     set {_uniqueStorage()._metadata = newValue}
   }
 
   /// Version of the Protobuf package or definitions that this service was compiled against.
   public var protoVersion: String {
-    get {_storage._protoVersion ?? String()}
+    get {return _storage._protoVersion ?? String()}
     set {_uniqueStorage()._protoVersion = newValue}
   }
   /// Returns true if `protoVersion` has been explicitly set.
-  public var hasProtoVersion: Bool {_storage._protoVersion != nil}
+  public var hasProtoVersion: Bool {return _storage._protoVersion != nil}
   /// Clears the value of `protoVersion`. Subsequent reads from it will return its default value.
   public mutating func clearProtoVersion() {_uniqueStorage()._protoVersion = nil}
 
   /// Identifier of the current leader instance if this node is not the leader.
   /// This is useful for clients to discover the active leader.
   public var leaderID: String {
-    get {_storage._leaderID ?? String()}
+    get {return _storage._leaderID ?? String()}
     set {_uniqueStorage()._leaderID = newValue}
   }
   /// Returns true if `leaderID` has been explicitly set.
-  public var hasLeaderID: Bool {_storage._leaderID != nil}
+  public var hasLeaderID: Bool {return _storage._leaderID != nil}
   /// Clears the value of `leaderID`. Subsequent reads from it will return its default value.
   public mutating func clearLeaderID() {_uniqueStorage()._leaderID = nil}
 
   /// The timestamp when the service instance was started.
   /// Human-readable timestamp representation in RFC 3339 format (e.g., "2025-12-18T10:15:30Z").
   public var startTime: String {
-    get {_storage._startTime ?? String()}
+    get {return _storage._startTime ?? String()}
     set {_uniqueStorage()._startTime = newValue}
   }
   /// Returns true if `startTime` has been explicitly set.
-  public var hasStartTime: Bool {_storage._startTime != nil}
+  public var hasStartTime: Bool {return _storage._startTime != nil}
   /// Clears the value of `startTime`. Subsequent reads from it will return its default value.
   public mutating func clearStartTime() {_uniqueStorage()._startTime = nil}
 
   /// The number of seconds the service has been running since startup.
   /// Calculated dynamically on each request as the difference between current time and start_time.
   public var uptime: UInt64 {
-    get {_storage._uptime ?? 0}
+    get {return _storage._uptime ?? 0}
     set {_uniqueStorage()._uptime = newValue}
   }
   /// Returns true if `uptime` has been explicitly set.
-  public var hasUptime: Bool {_storage._uptime != nil}
+  public var hasUptime: Bool {return _storage._uptime != nil}
   /// Clears the value of `uptime`. Subsequent reads from it will return its default value.
   public mutating func clearUptime() {_uniqueStorage()._uptime = nil}
 
@@ -188,11 +188,11 @@ public struct Io_Altessa_Serviceinfo_V1_ServiceInfo: @unchecked Sendable {
     /// Pre-release identifier (e.g., "alpha", "beta.1").
     /// A series of dot-separated identifiers immediately following the patch version.
     public var preRelease: String {
-      get {_preRelease ?? String()}
+      get {return _preRelease ?? String()}
       set {_preRelease = newValue}
     }
     /// Returns true if `preRelease` has been explicitly set.
-    public var hasPreRelease: Bool {self._preRelease != nil}
+    public var hasPreRelease: Bool {return self._preRelease != nil}
     /// Clears the value of `preRelease`. Subsequent reads from it will return its default value.
     public mutating func clearPreRelease() {self._preRelease = nil}
 
@@ -214,7 +214,23 @@ fileprivate let _protobuf_package = "io.altessa.serviceinfo.v1"
 
 extension Io_Altessa_Serviceinfo_V1_ServiceInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ServiceInfo"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}service_name\0\u{3}service_description\0\u{3}service_id\0\u{3}is_leader\0\u{3}full_version\0\u{3}semantic_version\0\u{3}build_time\0\u{1}branch\0\u{1}commit\0\u{3}build_tags\0\u{1}metadata\0\u{3}proto_version\0\u{3}leader_id\0\u{3}start_time\0\u{1}uptime\0")
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "service_name"),
+    2: .standard(proto: "service_description"),
+    3: .standard(proto: "service_id"),
+    4: .standard(proto: "is_leader"),
+    5: .standard(proto: "full_version"),
+    6: .standard(proto: "semantic_version"),
+    7: .standard(proto: "build_time"),
+    8: .same(proto: "branch"),
+    9: .same(proto: "commit"),
+    10: .standard(proto: "build_tags"),
+    11: .same(proto: "metadata"),
+    12: .standard(proto: "proto_version"),
+    13: .standard(proto: "leader_id"),
+    14: .standard(proto: "start_time"),
+    15: .same(proto: "uptime"),
+  ]
 
   fileprivate class _StorageClass {
     var _serviceName: String = String()
@@ -382,7 +398,12 @@ extension Io_Altessa_Serviceinfo_V1_ServiceInfo: SwiftProtobuf.Message, SwiftPro
 
 extension Io_Altessa_Serviceinfo_V1_ServiceInfo.SemanticVersion: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Io_Altessa_Serviceinfo_V1_ServiceInfo.protoMessageName + ".SemanticVersion"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}major\0\u{1}minor\0\u{1}patch\0\u{3}pre_release\0")
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "major"),
+    2: .same(proto: "minor"),
+    3: .same(proto: "patch"),
+    4: .standard(proto: "pre_release"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
