@@ -24,6 +24,113 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+/// FieldType mirrors google.protobuf.FieldDescriptorProto.Type as an open
+/// proto3 enum so this schema is usable from PHP and other generators
+/// that disallow proto2 closed-enum dependencies in proto3 files. Numeric
+/// values intentionally match the upstream FieldDescriptorProto.Type so
+/// tools can cast or round-trip without a lookup table.
+public enum Io_Altessa_Badrequest_V1_FieldType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case unspecified // = 0
+  case double // = 1
+  case float // = 2
+  case int64 // = 3
+  case uint64 // = 4
+  case int32 // = 5
+  case fixed64 // = 6
+  case fixed32 // = 7
+  case bool // = 8
+  case string // = 9
+  case group // = 10
+  case message // = 11
+  case bytes // = 12
+  case uint32 // = 13
+  case `enum` // = 14
+  case sfixed32 // = 15
+  case sfixed64 // = 16
+  case sint32 // = 17
+  case sint64 // = 18
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .double
+    case 2: self = .float
+    case 3: self = .int64
+    case 4: self = .uint64
+    case 5: self = .int32
+    case 6: self = .fixed64
+    case 7: self = .fixed32
+    case 8: self = .bool
+    case 9: self = .string
+    case 10: self = .group
+    case 11: self = .message
+    case 12: self = .bytes
+    case 13: self = .uint32
+    case 14: self = .enum
+    case 15: self = .sfixed32
+    case 16: self = .sfixed64
+    case 17: self = .sint32
+    case 18: self = .sint64
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .double: return 1
+    case .float: return 2
+    case .int64: return 3
+    case .uint64: return 4
+    case .int32: return 5
+    case .fixed64: return 6
+    case .fixed32: return 7
+    case .bool: return 8
+    case .string: return 9
+    case .group: return 10
+    case .message: return 11
+    case .bytes: return 12
+    case .uint32: return 13
+    case .enum: return 14
+    case .sfixed32: return 15
+    case .sfixed64: return 16
+    case .sint32: return 17
+    case .sint64: return 18
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [Io_Altessa_Badrequest_V1_FieldType] = [
+    .unspecified,
+    .double,
+    .float,
+    .int64,
+    .uint64,
+    .int32,
+    .fixed64,
+    .fixed32,
+    .bool,
+    .string,
+    .group,
+    .message,
+    .bytes,
+    .uint32,
+    .enum,
+    .sfixed32,
+    .sfixed64,
+    .sint32,
+    .sint64,
+  ]
+
+}
+
 /// Defines a general error structure for requests that are malformed or contain invalid data.
 /// It typically includes a list of specific field violations that caused the request to be rejected.
 /// This message is often used as a detail payload for `google.rpc.Status` when the error code is `INVALID_ARGUMENT`.
@@ -59,7 +166,6 @@ public struct Io_Altessa_Badrequest_V1_FieldViolation: Sendable {
   public mutating func clearFieldPath() {self._fieldPath = nil}
 
   /// Human-readable message describing the violation.
-  /// This should be specific to the field and the error condition.
   public var message: String {
     get {return _message ?? String()}
     set {_message = newValue}
@@ -70,7 +176,6 @@ public struct Io_Altessa_Badrequest_V1_FieldViolation: Sendable {
   public mutating func clearMessage() {self._message = nil}
 
   /// Application-specific error code or identifier for this type of violation.
-  /// This can be used by clients for programmatic error handling.
   public var code: String {
     get {return _code ?? String()}
     set {_code = newValue}
@@ -81,8 +186,6 @@ public struct Io_Altessa_Badrequest_V1_FieldViolation: Sendable {
   public mutating func clearCode() {self._code = nil}
 
   /// Structured representation of the path to the field that caused the violation.
-  /// This provides more detailed information than `field_path` and can be used for
-  /// more precise error handling or display.
   public var fieldPathComponents: [Io_Altessa_Badrequest_V1_FieldPathComponent] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -122,8 +225,8 @@ public struct Io_Altessa_Badrequest_V1_FieldPathComponent: Sendable {
   public mutating func clearName() {self._name = nil}
 
   /// Data type of the field.
-  public var type: SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum {
-    get {return _type ?? .double}
+  public var type: Io_Altessa_Badrequest_V1_FieldType {
+    get {return _type ?? .unspecified}
     set {_type = newValue}
   }
   /// Returns true if `type` has been explicitly set.
@@ -132,8 +235,8 @@ public struct Io_Altessa_Badrequest_V1_FieldPathComponent: Sendable {
   public mutating func clearType() {self._type = nil}
 
   /// For map fields, specifies the data type of the map keys.
-  public var mapKeyType: SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum {
-    get {return _mapKeyType ?? .double}
+  public var mapKeyType: Io_Altessa_Badrequest_V1_FieldType {
+    get {return _mapKeyType ?? .unspecified}
     set {_mapKeyType = newValue}
   }
   /// Returns true if `mapKeyType` has been explicitly set.
@@ -142,8 +245,8 @@ public struct Io_Altessa_Badrequest_V1_FieldPathComponent: Sendable {
   public mutating func clearMapKeyType() {self._mapKeyType = nil}
 
   /// For map fields, specifies the data type of the map values.
-  public var mapValueType: SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum {
-    get {return _mapValueType ?? .double}
+  public var mapValueType: Io_Altessa_Badrequest_V1_FieldType {
+    get {return _mapValueType ?? .unspecified}
     set {_mapValueType = newValue}
   }
   /// Returns true if `mapValueType` has been explicitly set.
@@ -172,7 +275,6 @@ public struct Io_Altessa_Badrequest_V1_FieldPathComponent: Sendable {
   public mutating func clearRepeatedIndex() {self._repeatedIndex = nil}
 
   /// If the field is a map, this `oneof` specifies the key of the map entry that caused the violation.
-  /// Only one of the `key` fields will be set, corresponding to the actual type of the map key.
   public var mapKey: Io_Altessa_Badrequest_V1_FieldPathComponent.OneOf_MapKey? = nil
 
   /// The index if the map key is treated as an array index (less common for proto maps).
@@ -223,7 +325,6 @@ public struct Io_Altessa_Badrequest_V1_FieldPathComponent: Sendable {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// If the field is a map, this `oneof` specifies the key of the map entry that caused the violation.
-  /// Only one of the `key` fields will be set, corresponding to the actual type of the map key.
   public enum OneOf_MapKey: Equatable, Sendable {
     /// The index if the map key is treated as an array index (less common for proto maps).
     case index(UInt64)
@@ -242,9 +343,9 @@ public struct Io_Altessa_Badrequest_V1_FieldPathComponent: Sendable {
 
   fileprivate var _number: Int32? = nil
   fileprivate var _name: String? = nil
-  fileprivate var _type: SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum? = nil
-  fileprivate var _mapKeyType: SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum? = nil
-  fileprivate var _mapValueType: SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum? = nil
+  fileprivate var _type: Io_Altessa_Badrequest_V1_FieldType? = nil
+  fileprivate var _mapKeyType: Io_Altessa_Badrequest_V1_FieldType? = nil
+  fileprivate var _mapValueType: Io_Altessa_Badrequest_V1_FieldType? = nil
   fileprivate var _isRepeated: Bool? = nil
   fileprivate var _repeatedIndex: UInt64? = nil
 }
@@ -252,6 +353,30 @@ public struct Io_Altessa_Badrequest_V1_FieldPathComponent: Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "io.altessa.badrequest.v1"
+
+extension Io_Altessa_Badrequest_V1_FieldType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FIELD_TYPE_UNSPECIFIED"),
+    1: .same(proto: "FIELD_TYPE_DOUBLE"),
+    2: .same(proto: "FIELD_TYPE_FLOAT"),
+    3: .same(proto: "FIELD_TYPE_INT64"),
+    4: .same(proto: "FIELD_TYPE_UINT64"),
+    5: .same(proto: "FIELD_TYPE_INT32"),
+    6: .same(proto: "FIELD_TYPE_FIXED64"),
+    7: .same(proto: "FIELD_TYPE_FIXED32"),
+    8: .same(proto: "FIELD_TYPE_BOOL"),
+    9: .same(proto: "FIELD_TYPE_STRING"),
+    10: .same(proto: "FIELD_TYPE_GROUP"),
+    11: .same(proto: "FIELD_TYPE_MESSAGE"),
+    12: .same(proto: "FIELD_TYPE_BYTES"),
+    13: .same(proto: "FIELD_TYPE_UINT32"),
+    14: .same(proto: "FIELD_TYPE_ENUM"),
+    15: .same(proto: "FIELD_TYPE_SFIXED32"),
+    16: .same(proto: "FIELD_TYPE_SFIXED64"),
+    17: .same(proto: "FIELD_TYPE_SINT32"),
+    18: .same(proto: "FIELD_TYPE_SINT64"),
+  ]
+}
 
 extension Io_Altessa_Badrequest_V1_BadRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".BadRequest"
