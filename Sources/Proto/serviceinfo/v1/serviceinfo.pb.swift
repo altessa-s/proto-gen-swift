@@ -125,16 +125,6 @@ public struct Io_Altessa_Serviceinfo_V1_ServiceInfo: @unchecked Sendable {
     set {_uniqueStorage()._metadata = newValue}
   }
 
-  /// Version of the Protobuf package or definitions that this service was compiled against.
-  public var protoVersion: String {
-    get {return _storage._protoVersion ?? String()}
-    set {_uniqueStorage()._protoVersion = newValue}
-  }
-  /// Returns true if `protoVersion` has been explicitly set.
-  public var hasProtoVersion: Bool {return _storage._protoVersion != nil}
-  /// Clears the value of `protoVersion`. Subsequent reads from it will return its default value.
-  public mutating func clearProtoVersion() {_uniqueStorage()._protoVersion = nil}
-
   /// Identifier of the current leader instance if this node is not the leader.
   /// This is useful for clients to discover the active leader.
   public var leaderID: String {
@@ -214,23 +204,25 @@ fileprivate let _protobuf_package = "io.altessa.serviceinfo.v1"
 
 extension Io_Altessa_Serviceinfo_V1_ServiceInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ServiceInfo"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "service_name"),
-    2: .standard(proto: "service_description"),
-    3: .standard(proto: "service_id"),
-    4: .standard(proto: "is_leader"),
-    5: .standard(proto: "full_version"),
-    6: .standard(proto: "semantic_version"),
-    7: .standard(proto: "build_time"),
-    8: .same(proto: "branch"),
-    9: .same(proto: "commit"),
-    10: .standard(proto: "build_tags"),
-    11: .same(proto: "metadata"),
-    12: .standard(proto: "proto_version"),
-    13: .standard(proto: "leader_id"),
-    14: .standard(proto: "start_time"),
-    15: .same(proto: "uptime"),
-  ]
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(
+      reservedNames: [],
+      reservedRanges: [12..<13],
+      numberNameMappings: [
+        1: .standard(proto: "service_name"),
+        2: .standard(proto: "service_description"),
+        3: .standard(proto: "service_id"),
+        4: .standard(proto: "is_leader"),
+        5: .standard(proto: "full_version"),
+        6: .standard(proto: "semantic_version"),
+        7: .standard(proto: "build_time"),
+        8: .same(proto: "branch"),
+        9: .same(proto: "commit"),
+        10: .standard(proto: "build_tags"),
+        11: .same(proto: "metadata"),
+        13: .standard(proto: "leader_id"),
+        14: .standard(proto: "start_time"),
+        15: .same(proto: "uptime"),
+  ])
 
   fileprivate class _StorageClass {
     var _serviceName: String = String()
@@ -244,7 +236,6 @@ extension Io_Altessa_Serviceinfo_V1_ServiceInfo: SwiftProtobuf.Message, SwiftPro
     var _commit: String? = nil
     var _buildTags: String? = nil
     var _metadata: Dictionary<String,String> = [:]
-    var _protoVersion: String? = nil
     var _leaderID: String? = nil
     var _startTime: String? = nil
     var _uptime: UInt64? = nil
@@ -269,7 +260,6 @@ extension Io_Altessa_Serviceinfo_V1_ServiceInfo: SwiftProtobuf.Message, SwiftPro
       _commit = source._commit
       _buildTags = source._buildTags
       _metadata = source._metadata
-      _protoVersion = source._protoVersion
       _leaderID = source._leaderID
       _startTime = source._startTime
       _uptime = source._uptime
@@ -302,7 +292,6 @@ extension Io_Altessa_Serviceinfo_V1_ServiceInfo: SwiftProtobuf.Message, SwiftPro
         case 9: try { try decoder.decodeSingularStringField(value: &_storage._commit) }()
         case 10: try { try decoder.decodeSingularStringField(value: &_storage._buildTags) }()
         case 11: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._metadata) }()
-        case 12: try { try decoder.decodeSingularStringField(value: &_storage._protoVersion) }()
         case 13: try { try decoder.decodeSingularStringField(value: &_storage._leaderID) }()
         case 14: try { try decoder.decodeSingularStringField(value: &_storage._startTime) }()
         case 15: try { try decoder.decodeSingularUInt64Field(value: &_storage._uptime) }()
@@ -351,9 +340,6 @@ extension Io_Altessa_Serviceinfo_V1_ServiceInfo: SwiftProtobuf.Message, SwiftPro
       if !_storage._metadata.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._metadata, fieldNumber: 11)
       }
-      try { if let v = _storage._protoVersion {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 12)
-      } }()
       try { if let v = _storage._leaderID {
         try visitor.visitSingularStringField(value: v, fieldNumber: 13)
       } }()
@@ -383,7 +369,6 @@ extension Io_Altessa_Serviceinfo_V1_ServiceInfo: SwiftProtobuf.Message, SwiftPro
         if _storage._commit != rhs_storage._commit {return false}
         if _storage._buildTags != rhs_storage._buildTags {return false}
         if _storage._metadata != rhs_storage._metadata {return false}
-        if _storage._protoVersion != rhs_storage._protoVersion {return false}
         if _storage._leaderID != rhs_storage._leaderID {return false}
         if _storage._startTime != rhs_storage._startTime {return false}
         if _storage._uptime != rhs_storage._uptime {return false}
